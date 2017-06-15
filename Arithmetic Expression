@@ -1,0 +1,19 @@
+boolean arithmeticExpression(int a, int b, int c) {
+    
+    float aa=Float.valueOf(a);
+    float bb=Float.valueOf(b);
+    float cc=Float.valueOf(c);
+    
+    if((a+b) == c){
+        return true;
+    }else if((a-b)==c){
+        return true;
+    }else if((a*b)==c){
+        return true;
+    }else if((aa/bb)==cc){
+        return true;
+    }
+    return false;
+    
+
+}
