@@ -1,0 +1,22 @@
+int lineUp(String commands) {
+    int r = 0;
+    boolean pair = true;
+ 
+    if (commands.trim().length() == 0) {
+        return 0;
+    }
+    commands = commands.toUpperCase();
+    for (int i = 0; i < commands.length(); i++) {
+        char c = commands.charAt(i);
+        if ((c == 'L' || c == 'R')) {
+            if(!pair)
+                r++;
+            pair = !pair;
+        } else{
+            if(pair)
+                r++;
+        }
+    }
+ 
+    return r;
+}
