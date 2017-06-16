@@ -1,0 +1,22 @@
+int mirrorBits(int a) {
+
+    String original=Integer.toBinaryString(a);
+    
+    StringBuilder sb=new StringBuilder();
+    
+    char[] ch=original.toCharArray();
+    
+    for(int i=ch.length-1;i>=0;i--){
+        sb.append(Character.toString(ch[i]));
+    }
+    
+    String mirror=sb.toString();
+    
+    int mirrorDeci=Integer.parseInt(mirror,2);
+    
+    return mirrorDeci;
+    
+    
+    
+    
+}
