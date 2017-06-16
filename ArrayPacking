@@ -1,0 +1,32 @@
+int arrayPacking(int[] a) {
+    
+    String temp="";
+    String[] bin=new String[a.length];
+    
+    int i=0;
+    for(Integer num:a){
+        String tem=Integer.toBinaryString(num);
+        tem=String.format("%8s", tem).replace(' ', '0');
+        
+        bin[i++]=tem;
+    }
+    
+    int len=bin.length;
+    
+    for(int j=len-1;j>=0;j--){
+        if(temp.length()==0){
+            temp=bin[j];
+        }else{
+            temp+=bin[j];
+        }
+    }
+    
+    System.out.println(temp);
+    
+    int deci=Integer.parseInt(temp,2);
+    
+    System.out.println(deci);
+    
+    return deci;
+    
+}
