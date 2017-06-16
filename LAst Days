@@ -1,0 +1,37 @@
+int[] metroCard(int lastNumberOfDays) {
+    
+    HashMap<Integer,ArrayList<Integer>> extension=new HashMap<Integer,ArrayList<Integer>>();
+    
+    ArrayList<Integer> al31=new ArrayList<Integer>();
+    al31.add(28);
+    al31.add(30);
+    al31.add(31);
+    
+    ArrayList<Integer> al30=new ArrayList<Integer>();
+    al30.add(31);
+    
+    ArrayList<Integer> al28=new ArrayList<Integer>();
+    al28.add(31);
+    
+    extension.put(31,al31);
+    extension.put(30,al30);
+    extension.put(28,al28);
+
+    ArrayList<Integer> temp=new ArrayList<Integer>();
+    temp=extension.get(lastNumberOfDays);
+    
+    int[] days=new int[temp.size()];
+    
+    int i=0;
+    
+    for(Integer day:temp){
+        days[i++]=day;
+    }
+    
+    
+    return days;
+    
+    
+    
+
+}
