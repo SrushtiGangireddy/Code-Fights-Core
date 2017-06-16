@@ -1,0 +1,13 @@
+int magicalWell(int a, int b, int n) {
+    
+    int total=0;
+    
+    while(n >= 1){
+        total += (a*b);
+        a++;b++;
+        n--;
+    }
+    
+    return total;
+
+}
