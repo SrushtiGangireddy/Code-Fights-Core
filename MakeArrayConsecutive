@@ -1,0 +1,24 @@
+int makeArrayConsecutive2(int[] statues) {
+    
+    ArrayList<Integer> order=new ArrayList<Integer>();
+    
+    for(Integer statue:statues){
+        order.add(statue);
+    }
+    
+    int counter=0;
+    
+    Collections.sort(order);
+    
+    int a=order.get(0);
+    int b=order.get(order.size()-1);
+    
+    for(int i=a;i<=b;i++){
+        if(!order.contains(i)){
+            counter++;
+        }
+    }
+    
+    return counter;
+
+}
