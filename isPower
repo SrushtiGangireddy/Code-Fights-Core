@@ -1,0 +1,20 @@
+boolean isPower(int n) {
+    
+    if(n == 1){
+        return true;
+    }
+    
+    Double root=Math.sqrt(n);
+    int rootint=root.intValue();
+    
+    for(int i=2;i<=rootint;i++){
+        for(int j=2;j<=rootint;j++){
+            if(Math.pow(i,j) == n){
+                return true;
+            }
+        }
+    }
+    
+    return false;
+
+}
