@@ -1,0 +1,71 @@
+int additionWithoutCarrying(int param1, int param2) {
+    ArrayList<Integer> a=new ArrayList<Integer>();
+    ArrayList<Integer> b=new ArrayList<Integer>();
+    
+    String num1=String.valueOf(param1);
+    for(int i=0;i<num1.length();i++){
+        a.add(Integer.valueOf(Character.toString(num1.charAt(i))));
+    }
+    String num2=String.valueOf(param2);
+    for(int i=0;i<num2.length();i++){
+        b.add(Integer.valueOf(Character.toString(num2.charAt(i))));
+    }
+    
+    int len1=a.size();
+    int len2=b.size();
+    String result="";
+    if(len1 > len2){
+        while(len1 > len2){
+            if(result.length() == 0){
+                int temp=a.get(0);
+                a.remove(0);
+                result=String.valueOf(temp);
+                len1--;
+            }else{
+                int temp=a.get(0);
+                a.remove(0);
+                result=result+String.valueOf(temp);
+                len1--;
+            }
+        }
+    }
+    if(len2 > len1){
+        while(len2 > len1){
+            if(result.length() == 0){
+                int temp=b.get(0);
+                b.remove(0);
+                result=String.valueOf(temp);
+                len2--;
+            }else{
+                int temp=b.get(0);
+                b.remove(0);
+                result=result+String.valueOf(temp);
+                len2--;
+            }
+        }
+    }
+    if(len1 == len2){
+        while((len1 > 0) || (len2 > 0)){
+           int temp1=a.get(0);
+            int temp2=b.get(0);
+        a.remove(0);
+        b.remove(0);
+            len1--;
+            len2--;
+            int sum=temp1+temp2;
+            String sim=String.valueOf(sum);
+            String last=sim.substring(sim.length()-1,sim.length());
+            if(result.length() == 0){
+                result=last;
+            }else{
+                result=result+last;
+            }
+        }
+           
+        
+    }
+    System.out.println(result);
+    
+    return Integer.valueOf(result);
+  
+}
