@@ -1,0 +1,20 @@
+int appleBoxes(int k) {
+    
+    int redapples=0;
+    int yellowapples=0;
+    
+    for(int i=1;i<=k;i++){
+        int apples=i*i;
+        
+        if((i%2) == 0){
+            redapples+=apples;
+        }else if((i%2) != 0){
+            yellowapples+=apples;
+        }
+    }
+    
+    return redapples-yellowapples;
+    
+    
+
+}
