@@ -1,0 +1,4 @@
+int candles(int candlesNumber, int makeNew) {
+
+	 return (int) (candlesNumber + Math.floor((candlesNumber - 1) / (makeNew - 1)));
+	 }
