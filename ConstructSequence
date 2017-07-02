@@ -1,0 +1,36 @@
+int squareDigitsSequence(int a0) {
+    
+    ArrayList<Integer> sequence=new ArrayList<Integer>();
+    
+    int counter=1;
+    
+    counter = constructSequence(a0,sequence,counter);
+    
+    return counter;
+
+}
+
+int constructSequence(int a,ArrayList<Integer> sequence,int counter){
+    
+    while(!sequence.contains(a)){
+        
+        sequence.add(a);
+        a=findDigitsSquare(a);
+        counter++;
+        
+    }
+    
+    return counter;
+}
+
+int findDigitsSquare(int a){
+    
+    int square=0;
+    while(a > 0){
+        int digit=a%10;
+        a=a/10;
+        square+=digit*digit;
+    }
+    return square;
+    
+}
