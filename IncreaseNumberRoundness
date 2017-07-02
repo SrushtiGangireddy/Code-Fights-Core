@@ -1,0 +1,32 @@
+boolean increaseNumberRoundness(int n) {
+    
+    String number=String.valueOf(n);
+    int roundness=0;
+    int lastindex=0;
+    for(int i=number.length()-1;i>=0;i--){
+        String temp=Character.toString(number.charAt(i));
+        if(temp.equals("0")){
+            roundness++;
+            lastindex=i;
+        }else{
+            break;
+        }
+    }
+
+    if(roundness != 0){
+        String sub=number.substring(0,lastindex);
+        if(!sub.contains("0")){
+            return false;
+        }else{
+            return true;
+        }
+    }else if(roundness == 0){
+        if(number.contains("0")){
+            return true;
+        }
+    }
+    
+    
+    return false;
+    
+}
