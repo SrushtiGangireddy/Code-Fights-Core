@@ -1,0 +1,27 @@
+int pagesNumberingWithInk(int current, int numberOfDigits) {
+    
+    int currentNumberDigits=numDigits(current);
+    
+    current--;
+    
+    while(numberOfDigits > 0){
+        
+        currentNumberDigits=numDigits(current);
+        
+        if((numberOfDigits-currentNumberDigits) >= 0){
+            current++;
+            numberOfDigits=numberOfDigits-currentNumberDigits;
+        }else{
+            break;
+        }
+       
+        System.out.println("Current "+current+" numberofdigitsleft "+numberOfDigits);
+    }
+    
+    return current;
+}
+
+int numDigits(int number){
+    String numberString=String.valueOf(number);
+    return numberString.length();
+}
