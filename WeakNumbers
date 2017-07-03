@@ -1,0 +1,83 @@
+int[] weakNumbers(int n) {
+    
+    HashMap<Integer,Integer> numDivisors=new HashMap<Integer,Integer>();
+    
+    HashMap<Integer,Integer> numWeakness=new HashMap<Integer,Integer>();
+    
+    ArrayList<Integer> weakness=new ArrayList<Integer>();
+    
+    numDivisors=fillNumDivisors(numDivisors,n);
+    
+ //   System.out.println(numDivisors);
+    
+    fillWeakness(numDivisors,numWeakness,weakness,n);
+    
+    Collections.sort(weakness);
+    
+    int weakest=weakness.get(weakness.size()-1);
+    
+    Iterator it=numWeakness.entrySet().iterator();
+    
+    int counter=0;
+    
+    while(it.hasNext()){
+        Map.Entry pair=(Map.Entry)it.next();
+        
+        int keyWeakness=(Integer)pair.getKey();
+        int valueNumber=(Integer)pair.getValue();
+        
+        if(valueNumber == weakest){
+            counter++;
+        }
+        
+    }
+    
+    
+    int[] result=new int[2];
+    result[0]=weakest;
+    result[1]=counter;
+    return result;
+
+}
+
+void fillWeakness(HashMap<Integer,Integer> numDivisors,HashMap<Integer,Integer> numWeakness,ArrayList<Integer> weakness,int n){
+    
+    for(int i=1;i<=n;i++){
+        
+        int current=numDivisors.get(i);
+        int counter=0;
+        for(int j=1;j<i;j++){
+            int prev=numDivisors.get(j);
+            if(prev > current){
+                counter++;
+            }
+        }
+        numWeakness.put(i,counter);
+        weakness.add(counter);
+        
+    }
+    
+    
+}
+
+
+HashMap<Integer,Integer> fillNumDivisors(HashMap<Integer,Integer> nd,int n){
+    
+    for(int i=1;i<=n;i++){
+        
+        int counter=0;
+        
+        
+            for(int j=2;j<i;j++){
+                if((i%j) == 0){
+                    counter++;
+                }
+            }
+        
+        
+        nd.put(i,counter);
+        
+    }
+    
+    return nd;
+}
