@@ -1,0 +1,15 @@
+int rectangleRotation(int a, int b) {
+        java.awt.geom.AffineTransform at = new java.awt.geom.AffineTransform();
+        at.rotate(Math.toRadians(45));
+        java.awt.Shape s = at.createTransformedShape(new java.awt.geom.Rectangle2D.Double(-a/2., -b/2., a, b));
+        java.awt.Rectangle bounds = s.getBounds();
+        int cnt=0;
+        for(int x=bounds.x; x<bounds.x+bounds.width; x++) {
+            for(int y=bounds.y; y<bounds.y+bounds.height; y++) {
+                if(s.contains(x, y)) {
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+}
