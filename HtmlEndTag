@@ -1,0 +1,16 @@
+String htmlEndTagByStartTag(String startTag) {
+    
+    int startIndex=startTag.indexOf("<");
+    int endIndex=0;
+    if(!startTag.contains(" ")){
+        endIndex=startTag.indexOf(">");
+    }else{
+        endIndex=startTag.indexOf(" ");
+    }
+    
+    
+    String temp=startTag.substring(startIndex+1,endIndex);
+    
+    return "</"+temp+">";
+
+}
