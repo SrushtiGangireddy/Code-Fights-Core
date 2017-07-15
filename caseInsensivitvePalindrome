@@ -1,0 +1,58 @@
+boolean isCaseInsensitivePalindrome(String inputString) {
+    
+    String temp=inputString.toLowerCase();
+    return isPalindrome(temp);
+ //   System.out.println(temp);
+    
+  
+
+}
+
+public boolean isPalindrome(String word){
+    
+    int len=word.length();
+    
+    int mid=len/2;
+    
+    if((len%2) == 0){
+        
+         String a=word.substring(0,mid);
+    String b=word.substring(mid,len);
+    
+    System.out.println(a+" "+b);
+    
+    StringBuilder sb=new StringBuilder(b);
+    sb.reverse();
+    b=sb.toString();
+    
+    System.out.println(a+" "+b);
+    
+    if(a.equals(b)){
+        return true;
+    }
+    
+    return false;
+        
+    }else{
+         String a=word.substring(0,mid);
+    String b=word.substring(mid+1,len);
+    
+    System.out.println(a+" "+b);
+    
+    StringBuilder sb=new StringBuilder(b);
+    sb.reverse();
+    b=sb.toString();
+    
+    System.out.println(a+" "+b);
+    
+    if(a.equals(b)){
+        return true;
+    }
+    
+    return false;
+    }
+    
+   
+    
+    
+}
