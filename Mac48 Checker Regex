@@ -1,0 +1,6 @@
+boolean isMAC48Address(String mac) {
+    Pattern p = Pattern.compile("^([a-fA-F0-9]{2}[:-]){5}[a-fA-F0-9]{2}$");
+    Matcher m = p.matcher(mac);
+    return m.find();
+
+}
