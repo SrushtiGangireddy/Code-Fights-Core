@@ -1,0 +1,21 @@
+boolean isTandemRepeat(String inputString) {
+    
+    int len=inputString.length();
+    
+    if((len%2) != 0){
+        return false;
+    }
+    
+    int mid=len/2;
+    
+    String a=inputString.substring(0,mid);
+    String b=inputString.substring(mid,len);
+    
+    if(a.equals(b)){
+        return true;
+    }
+    
+    return false;
+    
+
+}
