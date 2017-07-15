@@ -1,0 +1,41 @@
+int stringsConstruction(String a, String b) {
+    
+    ArrayList<String> letters=new ArrayList<String>();
+    
+    for(int i=0;i<b.length();i++){
+        
+        String let=Character.toString(b.charAt(i));
+        
+        if(a.contains(let)){
+            letters.add(let);
+        }
+        
+    }    
+    
+    int counter=0;
+    
+    while(letters.size() > 0){
+        
+        String made="";
+        
+        for(int i=0;i<a.length();i++){
+            
+            String temp=Character.toString(a.charAt(i));
+            if(letters.contains(temp)){
+                letters.remove(temp);
+                made=made+temp;
+            }
+            
+        }
+        
+        if(made.equals(a)){
+            counter++;
+        }
+        
+    }
+    
+    
+    return counter;
+    
+
+}
