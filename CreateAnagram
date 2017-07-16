@@ -1,0 +1,32 @@
+int createAnagram(String s, String t) {
+    
+    ArrayList<String> tLetters=new ArrayList<String>();
+    ArrayList<String> sLetters=new ArrayList<String>();
+    
+    for(int i=0;i<t.length();i++){
+        tLetters.add(Character.toString(t.charAt(i)));
+    }
+    
+     for(int i=0;i<s.length();i++){
+        sLetters.add(Character.toString(s.charAt(i)));
+    }
+    
+    int counter=0;
+    
+    Iterator it=tLetters.iterator();
+    
+    while(it.hasNext()){
+        
+        String temp=(String)it.next();
+        
+        if(sLetters.contains(temp)){
+            sLetters.remove(temp);
+        }else{
+            counter++;
+        }
+        
+    }
+    
+    return counter;
+
+}
